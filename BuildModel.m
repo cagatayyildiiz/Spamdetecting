@@ -29,7 +29,7 @@ function [outputArg1] = BuildModel(inputArg1,inputArg2,inputArg3)
         str=strsplit(tline,' ');
         tline = fgetl(fid);
         i=1;
-        %% Find every sms probablity and save it into a stack. 
+        %% Find every given txt (spam or sms) probablity and save it into a stack. 
         while i<=size(str,2)
                 a=i+size(str1,2);
                 word_count_in_class=sum(inputArg1(:,i));
@@ -37,7 +37,7 @@ function [outputArg1] = BuildModel(inputArg1,inputArg2,inputArg3)
                 Stack.push(Probablity);
                 i=i+1;
         end
-        % pop the probablities of each word and calculate sms probablity
+        % pop the probablities of each word and calculate given txt (spam or sms) probablity
         divide=Stack.size;
         tempprob=1;
         while Stack.size>=1
